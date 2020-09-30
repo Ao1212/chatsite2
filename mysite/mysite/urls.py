@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("chat.urls")),  # トップページの表示
+    path("", include("chat.urls")),     # トップページの表示
+    path("accounts/", include("django.contrib.auth.urls")),   # 認証
+    path("accounts/", include("accounts.urls")),    # アカウントに関するページ
+    path('admin/', admin.site.urls),    # 管理インターフェース
 ]
 

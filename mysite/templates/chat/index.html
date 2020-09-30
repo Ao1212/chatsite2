@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
     <html lang="ja">
 <head>
     <meta charset="UTF-8">
@@ -6,22 +7,24 @@
 </head>
 <body>
     <h1>チャット部屋</h1>
-    <label for="room-name-input"></label><input id="room-name-input" type="text" size="50">
+    <input id="room-name-input" type="text" size="50">
     <br>
     <input id="room-name-submit" type="submit" value="決定">
 
-<script>
-    document.querySelector("#room-name-input").focus()
-    document.querySelector("#room-name-input").onkeyup = function(e){
-        if(e.KeyCode === 13){
-            document.querySelector("#room-name-submit").click();
-        }
-    }
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script>
+        $(function(){
+            $("#room-name-input").keypress(function (e) {
+                if (e.which == 13) {
+                    document.querySelector("#room-name-submit").click();
+                }
+            });
+        });
 
-    document.querySelector("#room-name-submit").onclick = function(e){
-        var roomName = document.querySelector("#room-name-input").value;
-        window.location.pathname = "/chat/" + roomName + "/";
-    }
-</script>
+        document.querySelector("#room-name-submit").onclick = function(e){
+            var roomName = document.querySelector("#room-name-input").value;
+            window.location.pathname = "/chat/" + roomName + "/";
+        }
+    </script>
 </body>
 </html>

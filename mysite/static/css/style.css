@@ -1,0 +1,190 @@
+body {
+    background: #f1f1f1;
+    display: flex;
+    flex-flow: column;
+    max-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+main .container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    height: 10vh;
+}
+
+
+/*----------
+プロフィール
+----------*/
+
+.card-profile {
+    width: 700px;
+    border: 0;
+    border-radius: 1rem;
+    box-shadow: 0 0.2rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.button {
+    width: 150px;
+}
+
+.btn {
+
+    font-size: 80%;
+    border-radius: 5rem;
+    font-weight: bold;
+}
+
+.profile_table {
+    width: 100%;
+    border: 1px solid #d1dbeb;
+    border-radius: 8px;
+    border-collapse: separate;
+    overflow: hidden;
+}
+
+.profile_table .header {
+    width: 200px;
+    padding: 16px 24px;
+    text-align: left;
+    background: #f1f5fa;
+}
+
+.profile_table .data {
+    padding: 16px 24px;
+}
+
+
+/*-------------
+プロフィール変更
+-------------*/
+
+.form-wrap {
+    display: grid;
+    gap: 16px;
+}
+
+.form-wrap-2{
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-control:focus {
+    box-shadow: none;
+}
+
+
+/*----------
+チャット画面
+----------*/
+
+.chat_wrap {
+    display: flex;
+    height: 91vh;
+}
+
+.group_select {
+    width: 13%;
+    text-align: center;
+    border-right: solid 3px black;
+}
+
+.group_select i {
+    font-size: 10rem;
+    margin-top: 40px;
+    transform: scale(-1, 1);
+}
+
+.chat {
+    width: 90%;
+}
+
+.question_balloon{
+    display: inline-block;
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #777;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 3rem;
+    max-width: 80%;
+
+  }
+  .question_balloon::after{
+    content: "";
+    position: absolute;
+    margin: 0;
+    bottom: -30px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-top: 40px solid #777;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    transform: rotate(30deg);
+  }
+
+  .answer_balloon{
+    display: inline-block;
+    position: relative;
+    margin: 20px;
+    padding: 20px;
+    background: #ccc;
+    border-radius: 30px;
+    color: #000;
+    font-size: 3rem;
+    max-width: 80%;
+    text-align: left;
+  }
+
+  .answer_balloon::after{
+    content: "";
+    position: absolute;
+    margin: 0;
+    bottom: -30px;
+    right: 10px;
+    width: 0;
+    height: 0;
+    border-top: 40px solid #ccc;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    transform: rotate(-30deg);
+  }
+
+.answer_box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .talk_wrap {
+      height: 91%;
+      overflow: scroll;
+  }
+
+  .comment {
+      position: relative;
+  }
+
+  .comment input {
+      width: 88%;
+      line-height: 60px;
+      border: solid 4px black;
+      margin:0 5px;
+      font-size: 3rem;
+      border-radius: 8px;
+  }
+
+  .comment button {
+      position: absolute;
+      width: 10%;
+      height: 68px;
+      font-size: 2.5rem;
+      border-radius: 5px;
+  }

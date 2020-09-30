@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}プロフィール{% endblock %}
+
+{% block body %}
+
+<div class="card card-profile my-5 mx-auto">
+    <div class="card-body">
+        <h5 class="card-title text-center">プロフィール</h5>
+        <table class="profile_table mb-4">
+            <tbody>
+                <tr>
+                    <th class="header">ユーザーネーム</th>
+                    <td class="data">{{ user_data.username }}</td>
+                </tr>
+                <tr>
+                    <th class="header">メールアドレス</th>
+                    <td class="data">{{ user_data.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="button mx-auto">
+            <a href="{% url 'accounts:prof_edit' %}" class="btn btn-lg btn-warning btn-block">プロフィールを編集</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

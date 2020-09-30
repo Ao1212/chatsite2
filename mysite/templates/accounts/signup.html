@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}新規登録{% endblock %}
+
+{% block body %}
+<section class="common-form">
+    <div class="py-3">
+    <div class="container">
+        <div style="font-size: 30px;">新規登録</div><br>
+        <!-- フォーム -->
+        <form method="post">
+        {% csrf_token %}
+ 
+            <!-- ユーザ名 -->
+            <div class="form-group row">
+                <label for="username" class="col-md-3 col-form-label">
+                    ユーザーネーム <span class="badge badge-warning">必須</span>
+                </label>
+                <div class="col-md-9">
+                    {{ form.username }}
+                </div>
+            </div>
+            <!-- /ユーザ名 -->
+ 
+            <!-- メールアドレス -->
+            <div class="form-group row">
+                <label for="email" class="col-md-3 col-form-label">
+                    メールアドレス <span class="badge badge-warning">必須</span>
+                </label>
+                <div class="col-md-9">
+                    {{ form.email }}
+                </div>
+            </div>
+
+            <!-- メールアドレス -->
+            <div class="form-group row">
+                <label for="email" class="col-md-3 col-form-label">
+                    パスワード <span class="badge badge-warning">必須</span>
+                </label>
+                <div class="col-md-9">
+                    {{ form.password1 }}
+                </div>
+            </div>
+
+            <!-- メールアドレス -->
+            <div class="form-group row">
+                <label for="email" class="col-md-3 col-form-label">
+                    パスワード（確認用） <span class="badge badge-warning">必須</span>
+                </label>
+                <div class="col-md-9">
+                    {{ form.password2 }}
+                </div>
+            </div>
+ 
+            {# エラーメッセージを表示 #}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                 {% endfor %}
+            {% endif %}
+ 
+            <!-- 確認ボタン -->
+            <div class="form-group row justify-content-end">
+                <div class="col-md-9">
+                    <button type="submit" class="btn btn-primary btn-lg">登録</button>
+                </div>
+            </div>
+ 
+        </form>
+</section>
+{% endblock %}
+</body>
+</html>

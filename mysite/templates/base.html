@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar navber-expand-lg navber-dark bg-dark">
+        <div class="container">
+            <ul class="navber-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'chat:home' %}" class="nav-link">ホーム</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'accounts:profile' %}" class="nav-link">プロフィール</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container-fluid">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer class="py-2 bg-dark">
+        <p class="m-0 text-center text-white">Copyright &copy; moviecatpudding</p>
+    </footer>
+    
+    
+    <script src="{% static 'js/jquery-3.5.1.min.js' %}"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    {% block extra_js %}
+    {% endblock %}
+</body>
+</html>

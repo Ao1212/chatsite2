@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{room_name}}{% endblock  %}
+
+{% block body %}
+<section class="chat_wrap">
+    <div class="group_select">
+        <div class="group_icon">
+            <i class="far fa-comment"></i>
+            <i class="fas fa-users"></i>
+        </div>
+    </div>
+    <div class="chat">
+        <div class="talk_wrap">
+            <div class="answer_box">
+                <div class="answer_balloon"></div>
+            </div>
+        </div>
+        <div class="comment">
+            <input class="message_input" type="text">
+            <button class="box" type="submit">送信</button>
+            {{ room_name|json_script:"room_name" }}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/chat.js' %}"></script>
+{% endblock %}

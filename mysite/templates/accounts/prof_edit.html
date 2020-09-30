@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}プロフィール編集{% endblock %}
+
+{% block body %}
+
+
+<div class="py-3">
+    <div class="container">
+        <div style="font-size: 30px;">アカウント情報変更</div><br>
+        <!-- フォーム -->
+        <form method="post">
+        {% csrf_token %}
+ 
+            <!-- ユーザ名 -->
+            <div class="form-group row">
+                <label for="username" class="col-md-3 col-form-label">
+                    ユーザーネーム <span class="badge badge-warning">必須</span>
+                </label>
+                <div class="col-md-9">
+                    {{ form.username }}
+                </div>
+            </div>
+            <!-- /ユーザ名 -->
+ 
+            <!-- メールアドレス -->
+            <div class="form-group row">
+                <label for="email" class="col-md-3 col-form-label">
+                    メールアドレス <span class="badge badge-warning">必須</span>
+                </label>
+                <div class="col-md-9">
+                    {{ form.email }}
+                </div>
+            </div>
+ 
+            {# エラーメッセージを表示 #}
+            {% if form.errors %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                 {% endfor %}
+            {% endif %}
+ 
+            <!-- 確認ボタン -->
+            <div class="form-group row justify-content-end">
+                <div class="col-md-9">
+                    <button type="submit" class="btn btn-primary">変更する</button>
+                </div>
+            </div>
+ 
+        </form>
+        <!-- /フォーム -->
+    </div>
+</div>
+
+
+{% endblock %}
